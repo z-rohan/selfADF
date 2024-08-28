@@ -1,0 +1,65 @@
+{
+	"name": "SourceCSV",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "blobLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "sales_data.csv",
+				"folderPath": "ADF-class4/datasets/landingZone",
+				"container": "self-adf-container"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "ORDERNUMBER",
+				"type": "String"
+			},
+			{
+				"name": "QUANTITYORDERED",
+				"type": "String"
+			},
+			{
+				"name": "PRICEEACH",
+				"type": "String"
+			},
+			{
+				"name": "ORDERLINENUMBER",
+				"type": "String"
+			},
+			{
+				"name": "SALES",
+				"type": "String"
+			},
+			{
+				"name": "ORDERDATE",
+				"type": "String"
+			},
+			{
+				"name": "STATUS",
+				"type": "String"
+			},
+			{
+				"name": "QTR_ID",
+				"type": "String"
+			},
+			{
+				"name": "MONTH_ID",
+				"type": "String"
+			},
+			{
+				"name": "YEAR_ID",
+				"type": "String"
+			}
+		]
+	}
+}
