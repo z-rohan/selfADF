@@ -49,7 +49,7 @@
 				"Source filter(QUANTITYORDERED>=30) ~> filterOnQuatity",
 				"filterOnQuatity aggregate(groupBy(YEAR_ID,",
 				"          MONTH_ID),",
-				"     TotalSales = ERROR_FUNCTION('')) ~> groupByOnMonthYear",
+				"     TotalSales = sum(SALES)) ~> groupByOnMonthYear",
 				"groupByOnMonthYear sink(allowSchemaDrift: true,",
 				"     validateSchema: true,",
 				"     input(",
