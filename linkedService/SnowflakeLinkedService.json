@@ -1,0 +1,17 @@
+{
+	"name": "SnowflakeLinkedService",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SnowflakeV2",
+		"typeProperties": {
+			"authenticationType": "Basic",
+			"accountIdentifier": "shyhuro-cc28333",
+			"user": "RohanZade",
+			"database": "sales_mart",
+			"warehouse": "COMPUTE_WH",
+			"role": "ACCOUNTADMIN",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDAyNEE5MjQ4LTE0MEYtNENCNS1COTAzLTQ4NDk2QzdEQkI1NF9iMGFjOTcxMi01Y2E2LTQ4ZWYtOTgxMS05YTk0ODkyMjkxYWUiDQp9"
+		}
+	}
+}

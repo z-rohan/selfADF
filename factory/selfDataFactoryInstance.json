@@ -1,0 +1,9 @@
+{
+	"name": "selfDataFactoryInstance",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e5299116-1a02-4ffa-abee-1374534b6f17",
+		"tenantId": "55d156ba-01ef-4fb1-90d1-b2f58d651c61"
+	}
+}
