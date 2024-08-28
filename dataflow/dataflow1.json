@@ -14,7 +14,11 @@
 			],
 			"sinks": [
 				{
-					"name": "sink1"
+					"dataset": {
+						"referenceName": "SinkSnowflake",
+						"type": "DatasetReference"
+					},
+					"name": "Sink"
 				}
 			],
 			"transformations": [
@@ -47,9 +51,20 @@
 				"          MONTH_ID),",
 				"     SALES = sum(SALES)) ~> groupByOnMonthYear",
 				"groupByOnMonthYear sink(allowSchemaDrift: true,",
-				"     validateSchema: false,",
+				"     validateSchema: true,",
+				"     input(",
+				"          YEAR_ID as string,",
+				"          MONTH_ID as string,",
+				"          TOTALSALES as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink1"
+				"     skipDuplicateMapOutputs: true,",
+				"     stageInsert: true) ~> Sink"
 			]
 		}
 	}
