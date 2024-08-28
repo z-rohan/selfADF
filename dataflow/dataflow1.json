@@ -15,7 +15,7 @@
 			"sinks": [],
 			"transformations": [
 				{
-					"name": "filter1"
+					"name": "filterOnQuatity"
 				}
 			],
 			"scriptLines": [
@@ -34,7 +34,7 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: true,",
 				"     ignoreNoFilesFound: false) ~> Source",
-				"Source filter(ERROR_FUNCTION('')) ~> filter1"
+				"Source filter(QUANTITYORDERED>=30) ~> filterOnQuatity"
 			]
 		}
 	}
