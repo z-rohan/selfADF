@@ -1,5 +1,5 @@
 {
-	"name": "selfPipeline",
+	"name": "selfDataflow",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
