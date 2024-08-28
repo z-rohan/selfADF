@@ -16,26 +16,31 @@
 			"transformations": [
 				{
 					"name": "filterOnQuatity"
+				},
+				{
+					"name": "groupByOnMonthYear"
 				}
 			],
 			"scriptLines": [
 				"source(output(",
-				"          ORDERNUMBER as string,",
-				"          QUANTITYORDERED as string,",
-				"          PRICEEACH as string,",
-				"          ORDERLINENUMBER as string,",
-				"          SALES as string,",
-				"          ORDERDATE as string,",
+				"          ORDERNUMBER as short,",
+				"          QUANTITYORDERED as short,",
+				"          PRICEEACH as double,",
+				"          ORDERLINENUMBER as short,",
+				"          SALES as double,",
+				"          ORDERDATE as timestamp,",
 				"          STATUS as string,",
-				"          QTR_ID as string,",
-				"          MONTH_ID as string,",
-				"          YEAR_ID as string",
+				"          QTR_ID as short,",
+				"          MONTH_ID as short,",
+				"          YEAR_ID as short",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: true,",
 				"     ignoreNoFilesFound: false,",
 				"     moveFiles: ['ADF-class4/datasets/landingZone/sales_data.csv','ADF-class4/datasets/processedFiles']) ~> Source",
-				"Source filter(QUANTITYORDERED>=30) ~> filterOnQuatity"
+				"Source filter(QUANTITYORDERED>=30) ~> filterOnQuatity",
+				"filterOnQuatity aggregate(groupBy(YEAR_ID,",
+				"          {} = ERROR_FUNCTION(''))) ~> groupByOnMonthYear"
 			]
 		}
 	}
