@@ -33,7 +33,8 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: true,",
-				"     ignoreNoFilesFound: false) ~> Source",
+				"     ignoreNoFilesFound: false,",
+				"     moveFiles: ['ADF-class4/datasets/landingZone/sales_data.csv','ADF-class4/datasets/processedFiles']) ~> Source",
 				"Source filter(QUANTITYORDERED>=30) ~> filterOnQuatity"
 			]
 		}
