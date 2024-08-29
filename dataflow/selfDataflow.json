@@ -53,7 +53,7 @@
 				"filterOnQuatity aggregate(groupBy(YEAR_ID,",
 				"          MONTH_ID),",
 				"     TOTALSALES = sum(SALES)) ~> groupByOnMonthYear",
-				"Source derive(column1 = ERROR_FUNCTION('')) ~> derivedColumn1",
+				"Source derive(path = byPath(ORDERNUMBER)) ~> derivedColumn1",
 				"groupByOnMonthYear sink(allowSchemaDrift: true,",
 				"     validateSchema: true,",
 				"     input(",
