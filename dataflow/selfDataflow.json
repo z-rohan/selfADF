@@ -49,7 +49,7 @@
 				"     validateSchema: true,",
 				"     ignoreNoFilesFound: false,",
 				"     moveFiles: ['ADF-class4/datasets/landingZone/sales_data.csv','ADF-class4/datasets/proccessedFiles/'],",
-				"     rowUrlColumn: 'FileName') ~> Source",
+				"     rowUrlColumn: 'FILENAME') ~> Source",
 				"derivedColumn1 filter(QUANTITYORDERED>=30) ~> filterOnQuatity",
 				"filterOnQuatity aggregate(groupBy(YEAR_ID,",
 				"          MONTH_ID),",
