@@ -27,9 +27,6 @@
 				},
 				{
 					"name": "groupByOnMonthYear"
-				},
-				{
-					"name": "derivedColumn1"
 				}
 			],
 			"scriptLines": [
@@ -50,10 +47,9 @@
 				"     ignoreNoFilesFound: false,",
 				"     moveFiles: ['ADF-class4/datasets/landingZone/sales_data.csv','ADF-class4/datasets/proccessedFiles/']) ~> Source",
 				"Source filter(QUANTITYORDERED>=30) ~> filterOnQuatity",
-				"derivedColumn1 aggregate(groupBy(YEAR_ID,",
+				"filterOnQuatity aggregate(groupBy(YEAR_ID,",
 				"          MONTH_ID),",
 				"     TOTALSALES = sum(SALES)) ~> groupByOnMonthYear",
-				"filterOnQuatity derive() ~> derivedColumn1",
 				"groupByOnMonthYear sink(allowSchemaDrift: true,",
 				"     validateSchema: true,",
 				"     input(",
