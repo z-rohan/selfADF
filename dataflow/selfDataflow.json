@@ -27,6 +27,9 @@
 				},
 				{
 					"name": "groupByOnMonthYear"
+				},
+				{
+					"name": "parse1"
 				}
 			],
 			"scriptLines": [
@@ -46,10 +49,13 @@
 				"     validateSchema: true,",
 				"     ignoreNoFilesFound: false,",
 				"     moveFiles: ['ADF-class4/datasets/landingZone/sales_data.csv','ADF-class4/datasets/proccessedFiles/']) ~> Source",
-				"Source filter(QUANTITYORDERED>=30) ~> filterOnQuatity",
+				"parse1 filter(QUANTITYORDERED>=30) ~> filterOnQuatity",
 				"filterOnQuatity aggregate(groupBy(YEAR_ID,",
 				"          MONTH_ID),",
 				"     TOTALSALES = sum(SALES)) ~> groupByOnMonthYear",
+				"Source parse(column1 = ERROR_FUNCTION(''),",
+				"     format: 'json',",
+				"     documentForm: 'documentPerLine') ~> parse1",
 				"groupByOnMonthYear sink(allowSchemaDrift: true,",
 				"     validateSchema: true,",
 				"     input(",
